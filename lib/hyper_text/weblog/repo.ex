@@ -29,4 +29,6 @@ defmodule HyperText.Weblog.Repo do
 		end)
 		|> cache(:all)
 	end
+	
+	def slug(slug), do: __MODULE__.all |> Enum.find(&(&1.slug == slug))
 end
