@@ -59,4 +59,11 @@ defmodule HyperText.Weblog.Repo do
 		end)
 		|> cache(:index)
 	end
+	
+	def archive(year, month) do
+		__MODULE__.all
+		|> Enum.filter(&(Calendar.strftime(&1.published, "%Y-%m") == "#{year}-#{month}"))
+		|> Enum.group_by(&(DateTime.to_date(&1.published)))
+		|> Enum.reverse
+	end
 end
