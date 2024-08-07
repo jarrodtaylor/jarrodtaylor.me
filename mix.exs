@@ -40,6 +40,7 @@ defmodule HyperText.MixProject do
 
       # Project packages:
       {:earmark, "~> 1.4"},
+      {:tzdata, "~> 1.1"},
       {:yamerl, "~> 0.10.0"}
     ]
   end
