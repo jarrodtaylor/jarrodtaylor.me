@@ -31,4 +31,14 @@ defmodule HyperText.Weblog.Repo do
 	end
 	
 	def slug(slug), do: __MODULE__.all |> Enum.find(&(&1.slug == slug))
+	
+	def recents do
+		(fn ->
+			__MODULE__.all
+			|> Enum.take(100)
+			|> Enum.group_by(&(DateTime.to_date(&1.published)))
+			|> Enum.reverse
+		end)
+		|> cache(:recents)
+	end
 end
