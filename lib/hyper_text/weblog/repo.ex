@@ -6,13 +6,27 @@ defmodule HyperText.Weblog.Repo do
 	def start_link(_), do: GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
 	
 	def init(args) do
-		:ets.new(:weblog, [:set, :private, :named_table])
+		:ets.new(:weblog, [:set, :public, :named_table])
 		{:ok, args}
 	end
 	
+	defp cache(query, key) do
+		case :ets.lookup(:weblog, key) do
+			[] ->
+				data = query.()
+				:ets.insert(:weblog, {key, data})
+				data
+			
+			[{_key, data}] -> data
+		end
+	end
+	
 	def all do
-		Path.wildcard("priv/weblog/**/*.md")
-		|> Enum.map(&Article.compile/1)
-		|> Enum.sort(&(&1.published >= &2.published))
+		(fn ->
+			Path.wildcard("priv/weblog/**/*.md")
+			|> Enum.map(&Article.compile/1)
+			|> Enum.sort(&(&1.published >= &2.published))
+		end)
+		|> cache(:all)
 	end
 end
