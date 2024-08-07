@@ -41,4 +41,22 @@ defmodule HyperText.Weblog.Repo do
 		end)
 		|> cache(:recents)
 	end
+	
+	def index do
+		(fn ->
+			__MODULE__.all
+			|> Enum.filter(&(&1.source == nil))
+			|> Enum.map(fn article ->
+				%{
+					slug: article.slug,
+					title: article.title,
+					published: article.published,
+					updated: article.updated,
+				}
+			end)
+			|> Enum.group_by(&(Date.beginning_of_month(&1.published)))
+			|> Enum.reverse
+		end)
+		|> cache(:index)
+	end
 end
