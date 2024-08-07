@@ -1,13 +1,6 @@
-/**
- * @license MIT
- * topbar 2.0.0, 2023-02-04
- * https://buunguyen.github.io/topbar
- * Copyright (c) 2021 Buu Nguyen
- */
 (function (window, document) {
   "use strict";
 
-  // https://gist.github.com/paulirish/1579671
   (function () {
     var lastTime = 0;
     var vendors = ["ms", "moz", "webkit", "o"];
