@@ -1,0 +1,8 @@
+{
+  "editor.default_syntax" : "elixir",
+  "workspace.color" : 7,
+  "workspace.name" : "jarrodtaylor.me",
+  "workspace.preview_root" : "priv\/static",
+  "workspace.preview_type" : "custom",
+  "workspace.preview_url" : "http:\/\/localhost:4000"
+}
