@@ -32,12 +32,6 @@ defmodule HyperTextWeb.WeblogHTML do
 		"""
 	end
 
-	def archive(assigns) do
-		~H"""
-		Archive
-		"""
-	end
-
 	def slug(assigns) do
 		~H"""
 		Slug
