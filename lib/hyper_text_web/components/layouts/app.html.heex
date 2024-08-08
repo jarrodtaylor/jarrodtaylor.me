@@ -6,7 +6,7 @@
   </nav>
 </header>
 
-<main>
+<main class={if Map.has_key?(assigns, :style), do: assigns.style, else: ""}>
   <%= @inner_content %>
 </main>
 

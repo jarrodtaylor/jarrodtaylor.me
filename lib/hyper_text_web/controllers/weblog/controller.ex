@@ -4,7 +4,7 @@ defmodule HyperTextWeb.WeblogController do
 	alias HyperText.Weblog.Repo
 
 	def recents(conn, _params) do
-		render(conn, :articles, articles: Repo.recents)
+		render(conn, :articles, articles: Repo.recents, style: "weblog")
 	end
 	
 	def index(conn, _params), do: render(conn, :index)
