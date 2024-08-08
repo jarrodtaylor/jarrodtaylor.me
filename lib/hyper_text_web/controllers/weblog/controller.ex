@@ -27,22 +27,36 @@ defmodule HyperTextWeb.WeblogController do
 	end
 
 	def column(conn, %{"year" => year, "month" => month, "slug" => slug}) do
-		article = Repo.slug("weblog/#{year}/#{month}/#{slug}")
+		case Repo.slug("weblog/#{year}/#{month}/#{slug}") do
+			nil ->
+				conn
+				|> put_status(:not_found)
+				|> put_view(HyperTextWeb.ErrorHTML)
+				|> render(:"404")
 
-		conn
-		|> render(:slug,
-			article: article,
-			page_title: "#{article.title}",
-			style: "weblog article")
+			article ->
+				conn
+				|> render(:slug,
+					article: article,
+					page_title: "#{article.title}",
+					style: "weblog article")
+		end
 	end
 
 	def linked(conn, %{"year" => year, "month" => month, "slug" => slug}) do
-		article = Repo.slug("weblog/linked/#{year}/#{month}/#{slug}")
+		case Repo.slug("weblog/linked/#{year}/#{month}/#{slug}") do
+			nil ->
+				conn
+				|> put_status(:not_found)
+				|> put_view(HyperTextWeb.ErrorHTML)
+				|> render(:"404")
 
-		conn
-		|> render(:slug,
-			article: article,
-			page_title: "#{article.title}",
-			style: "weblog article")
+			article ->
+				conn
+				|> render(:slug,
+					article: article,
+					page_title: "#{article.title}",
+					style: "weblog article")
+		end
 	end
 end
