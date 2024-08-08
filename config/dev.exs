@@ -29,3 +29,5 @@ config :phoenix, :plug_init_mode, :runtime
 config :phoenix_live_view,
   debug_heex_annotations: true,
   enable_expensive_runtime_checks: true
+
+config :hyper_text, cache_control: "public, max-age=0"

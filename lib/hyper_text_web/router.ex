@@ -8,6 +8,7 @@ defmodule HyperTextWeb.Router do
     plug :put_root_layout, html: {HyperTextWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :browser_cache
   end
 
   pipeline :api do
@@ -39,5 +40,10 @@ defmodule HyperTextWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: HyperTextWeb.Telemetry
     end
+  end
+
+  defp browser_cache(conn, _opts) do
+    put_resp_header(conn, "cache-control",
+      Application.get_env(:hyper_text, :cache_control, "public, max-age=3600"))
   end
 end
