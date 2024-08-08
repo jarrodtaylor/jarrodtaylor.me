@@ -1,6 +1,6 @@
 defmodule HyperTextWeb.WeblogHTML do
 	use HyperTextWeb, :html
-	
+
 	def articles(assigns) do
 		if assigns.articles == [] do
 			~H"""
@@ -15,25 +15,35 @@ defmodule HyperTextWeb.WeblogHTML do
 			"""
 		end
 	end
-		
+
 	def index(assigns) do
 		~H"""
-		Index
+		<section :for={{month, articles} <- @articles}>
+			<.link href={"/weblog/archive/#{Calendar.strftime(month, "%Y/%m")}"}>
+				<.time date={month} format={"%B %Y"} />
+			</.link>
+			<ul>
+				<li :for={article <- articles}>
+					<.link href={raw(article.slug)}><%= article.title %></.link>
+					<.time relative date={article.published} format={"%b %d, %Y"} />
+				</li>
+			</ul>
+		</section>
 		"""
 	end
-	
+
 	def archive(assigns) do
 		~H"""
 		Archive
 		"""
 	end
-	
+
 	def slug(assigns) do
 		~H"""
 		Slug
 		"""
 	end
-	
+
 	defp article(assigns) do
 		~H"""
 		<%= raw(@article.html) %>
