@@ -40,8 +40,20 @@ defmodule HyperTextWeb.WeblogHTML do
 
 	defp article(assigns) do
 		~H"""
-		<%= Map.has_key?(assigns, :slug) %>
-		<%= raw(@article.html) %>
+		<article class={if @article.source, do: "link", else: "column"}>
+			<h2 :if={@article.source}>
+				<.link href={@article.source}><%= @article.title %></.link>
+				<.link :if={!Map.has_key?(assigns, :slug)} href={@article.slug}>&#8734;</.link>
+			</h2>
+			<h2 :if={@article.source == nil && Map.has_key?(assigns, :slug)}>
+				<%= @article.title %>
+			</h2>
+			<h2 :if={@article.source == nil && !Map.has_key?(assigns, :slug)}>
+				<.link href={@article.slug}><%= @article.title %></.link>
+			</h2>
+			<.time :if={@article.source == nil} date={@article.published} format={"%b %d, %Y"} />
+			<%= raw(@article.html) %>
+		</article>
 		"""
 	end
 end
