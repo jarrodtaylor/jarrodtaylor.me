@@ -16,15 +16,15 @@ defmodule HyperTextWeb.Router do
 
   scope "/", HyperTextWeb do
     pipe_through :browser
-    
+
     get "/", WeblogController, :recents
-    
+
     get "/readme", PageController, :readme
-    
+
     get "/weblog", WeblogController, :index
     get "/weblog/archive/:year/:month", WeblogController, :archive
-    get "/weblog/linked/:year/:month/:slug", WeblogController, :slug
-    get "/weblog/:year/:month/:slug", WeblogController, :slug
+    get "/weblog/linked/:year/:month/:slug", WeblogController, :linked
+    get "/weblog/:year/:month/:slug", WeblogController, :column
   end
 
   # Other scopes may use custom stacks.

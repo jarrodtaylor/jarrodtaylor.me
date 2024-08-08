@@ -32,9 +32,10 @@ defmodule HyperTextWeb.WeblogHTML do
 		"""
 	end
 
+	# slug attr (similar to relative with .time)
 	def slug(assigns) do
 		~H"""
-		Slug
+		<.article article={@article}></.article>
 		"""
 	end
 
