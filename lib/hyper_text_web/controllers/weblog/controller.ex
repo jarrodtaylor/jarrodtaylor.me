@@ -1,7 +1,12 @@
 defmodule HyperTextWeb.WeblogController do
 	use HyperTextWeb, :controller
 
-	def recents(conn, _params), do: render(conn, :recents)
+	alias HyperText.Weblog.Repo
+
+	def recents(conn, _params) do
+		render(conn, :articles, articles: Repo.recents)
+	end
+	
 	def index(conn, _params), do: render(conn, :index)
 	def archive(conn, _params), do: render(conn, :archive)
 	def column(conn, _params), do: render(conn, :slug)
