@@ -1,6 +1,8 @@
 defmodule HyperTextWeb.Router do
   use HyperTextWeb, :router
 
+  @cache_control_policy Application.compile_env(:hyper_text, :cache_control, "public, max-age=3600")
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,7 +10,7 @@ defmodule HyperTextWeb.Router do
     plug :put_root_layout, html: {HyperTextWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :browser_cache
+    plug :put_cache_control_policy
   end
 
   pipeline :api do
@@ -42,8 +44,7 @@ defmodule HyperTextWeb.Router do
     end
   end
 
-  defp browser_cache(conn, _opts) do
-    put_resp_header(conn, "cache-control",
-      Application.get_env(:hyper_text, :cache_control, "public, max-age=3600"))
+  defp put_cache_control_policy(conn, _opts) do
+    put_resp_header(conn, "cache-control", @cache_control_policy)
   end
 end
