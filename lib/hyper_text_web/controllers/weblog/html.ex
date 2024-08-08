@@ -32,15 +32,15 @@ defmodule HyperTextWeb.WeblogHTML do
 		"""
 	end
 
-	# slug attr (similar to relative with .time)
 	def slug(assigns) do
 		~H"""
-		<.article article={@article}></.article>
+		<.article slug article={@article} />
 		"""
 	end
 
 	defp article(assigns) do
 		~H"""
+		<%= Map.has_key?(assigns, :slug) %>
 		<%= raw(@article.html) %>
 		"""
 	end
