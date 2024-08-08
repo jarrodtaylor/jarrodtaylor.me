@@ -1,0 +1,9 @@
+html {
+	font-size: 125%; }
+
+body {
+	background-color: white;
+	color: darkslategray;
+	font-family: "text", system-ui, "Segoe UI", sans-serif;
+	line-height: 1.5rem;
+	margin: 0; }

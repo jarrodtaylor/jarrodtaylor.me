@@ -1,0 +1,31 @@
+@font-face {
+	font-family: "text";
+	font-weight: normal;
+	font-style: normal;
+	src: url("/fonts/text/normal.woff2") format("woff2"); }
+@font-face {
+	font-family: "text";
+	font-weight: bold;
+	font-style: normal;
+	src: url("/fonts/text/bold.woff2") format("woff2"); }
+@font-face {
+	font-family: "text";
+	font-weight: normal;
+	font-style: italic;
+	src: url("/fonts/text/italic.woff2") format("woff2"); }
+@font-face {
+	font-family: "text";
+	font-weight: 300;
+	font-style: normal;
+	src: url("/fonts/text/lighter.woff2") format("woff2"); }
+@font-face {
+	font-family: "text";
+	font-weight: 100;
+	font-style: normal;
+	src: url("/fonts/text/thin.woff2") format("woff2"); }
+
+@font-face {
+	font-family: "code";
+	font-weight: normal;
+	font-style: normal;
+	src: url("/fonts/code/Regular.woff2") format("woff2"); }
