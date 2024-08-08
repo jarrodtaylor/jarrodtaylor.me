@@ -1,6 +1,8 @@
 import "../css/fonts.css"
 import "../css/base.css"
 import "../css/header.css"
+import "../css/main.css"
+import "../css/footer.css"
 
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
