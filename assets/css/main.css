@@ -4,10 +4,8 @@ main {
 	padding: 0 3rem; }
 
 @media (width <= 768px) {
-	main { padding: 0 2rem; }
-}
+	main { padding: 0 2rem; } }
 
 @media (width <= 430px) {
 	html { font-size: 100%; }
-	main { padding: 0 1rem; }
-}
+	main { padding: 0 1rem; } }

@@ -1,0 +1,96 @@
+.weblog.articles main section > time,
+.weblog.index main section > a time {
+  background-color: yellow;
+  border-radius: .1rem;
+  box-shadow: .033rem .033rem .033rem lavender;
+  color: black;
+  display: inline-block;
+  font-size: .875rem;
+  font-weight: bold;
+  padding: 0 .333rem;
+  margin-left: -1.5rem;
+  transform: rotate(-3deg);
+  transition: all .3s ease-in-out; }
+
+.weblog.index main section > a:hover time {
+  transform: rotate(-3deg) scale(1.066); }
+
+@media (width <= 768px) {
+  .weblog.articles main section > time,
+  .weblog.index main section > a time {
+    margin-left: -1rem; } }
+
+@media (width <= 430px) {
+  .weblog.articles main section > time,
+  .weblog.index main section > a time {
+    margin-left: -.5rem; } }
+
+.weblog.articles main > h2 {
+  text-align: center; }
+
+.weblog.articles main section > time {
+  margin-bottom: 2rem;
+  margin-top: 2rem; }
+
+.weblog.articles main section:first-of-type > time {
+  display: none; }
+
+.weblog.index main section ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 4rem; }
+
+.weblog.index main section ul li {
+  margin-bottom: .5rem; }
+
+.weblog.index main section ul li a {
+  color: black;
+  font-weight: bold; }
+
+.weblog.index main section ul li a:hover {
+  color: dodgerblue; }
+
+.weblog.index main section ul li time {
+  color: lightgray;
+  font-size: .875rem;
+  font-weight: thin;
+  margin-left: .5rem; }
+
+.weblog article {
+  margin-bottom: 4rem; }
+
+.weblog article + article.column {
+  margin-bottom: 11rem;
+  margin-top: 11rem; }
+
+.weblog article.column h2 {
+  color: black;
+  margin-bottom: 0; }
+
+.weblog article.column h2 a {
+  color: black;
+  text-decoration: none; }
+
+.weblog article.column h2 a:hover {
+  color: dodgerblue; }
+
+.weblog article.column time {
+  color: lightgray;
+  font-size: .875rem;
+  font-weight: bold; }
+
+.weblog article.link h2 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-transform: uppercase; }
+
+.weblog article.link h2 a {
+  color: black; }
+
+.weblog article.link h2 a:nth-child(2) {
+  color: gainsboro;
+  padding: 0 .333rem;
+  text-decoration: none; }
+
+.weblog article.link h2 a:hover {
+  color: dodgerblue; }

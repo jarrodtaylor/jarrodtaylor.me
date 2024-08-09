@@ -1,6 +1,8 @@
 ---
 title: Hello World!
-published: 2024-08-07T01:00:00
+published: 2024-08-06T01:00:00
 ---
 
-This is a column.
+  I'm Jarrod Taylor.
+Distiller of useless skills. Sports car enthusiast. Writer, programmer, podcaster. Rock 'n' roll
+dilettante and caffeine addict. Also, sometimes I make things.

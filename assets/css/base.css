@@ -1,3 +1,6 @@
+::selection {
+	background-color: greenyellow; }
+
 html {
 	font-size: 125%; }
 
@@ -8,22 +11,22 @@ body {
 	line-height: 1.5rem;
 	margin: 0; }
 
-h1 {
+h1, h2, h3 {
 	color: black;
+	font-weight: bold;
+	margin-top: 0; }
+
+h1 {
 	font-size: 4rem;
 	font-weight: bolder;
 	line-height: 4.5rem; }
 
 h2 {
-	color: black;
 	font-size: 2rem;
-	font-weight: bold;
 	line-height: 2.5rem; }
 
 h3 {
-	color: black;
 	font-size: 1.5rem;
-	font-weight: bold;
 	line-height: 2rem; }
 
 p.lede {
@@ -43,7 +46,7 @@ a {
 
 a:visited {
 	color: rebeccapurple; }
-	
+
 a:hover {
 	background-color: lightcyan;
 	color: dodgerblue;
